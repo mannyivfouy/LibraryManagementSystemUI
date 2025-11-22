@@ -1,0 +1,11 @@
+.card{
+    width: 420px;    
+    h4{
+        color: #3D4A78;
+    }
+
+    button{
+        background-color: #3D4A78;
+        border-color: #3D4A78;
+    }
+}
