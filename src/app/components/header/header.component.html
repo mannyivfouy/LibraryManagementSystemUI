@@ -1,1 +1,13 @@
-<p>header works!</p>
+<nav class="navbar navbar-light bg-white border-bottom shadow-sm px-3">
+  <div class="container-fluid d-flex justify-content-end align-items-center">
+    <h5 class="me-3">{{ username }}</h5>
+    <img
+      [src]="imageUrl"
+      alt="User Avatar"
+      class="rounded-circle"
+      routerLink="/user/createUser"
+      width="50"
+      height="50" 
+    />
+  </div>
+</nav>

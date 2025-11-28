@@ -4,6 +4,9 @@
     <app-header></app-header>
     <main class="flex-grow-1 p-4 overflow-auto bg-light">
       <router-outlet></router-outlet>
+      <app-not-authorized
+        *ngIf="modalService.accessDenied$ | async"
+      ></app-not-authorized>
     </main>
   </div>
 </div>

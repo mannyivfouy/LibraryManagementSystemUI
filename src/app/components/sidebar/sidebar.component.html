@@ -2,14 +2,13 @@
   class="d-flex flex-column bg-dark text-white p-3 vh-100"
   style="width: 300px"
 >
-  <div class="d-flex align-items-center mb-5">
-    <!-- <i class="bi bi-box-seam fs-3 me-4 text-primary"></i>
-    <h5 class="m-0 text-primary fw-bold">Stock Management</h5> -->
+  <div class="d-flex align-items-center justify-content-center mb-4 flex-column">
     <img
-      src="/assets/images/logo3.png"
+      src="assets/images/logo.png"
       alt="Logo"
       class="img-fluid"
       style="object-fit: cover"
+      width="70px"
     />
   </div>
 
@@ -34,11 +33,20 @@
     </li>
     <li class="nav-item mb-2">
       <a
+        routerLink="/member"
+        routerLinkActive="active"
+        class="nav-link text-white"
+      >
+        <i class="bi bi-person-fill me-2"></i> Members
+      </a>
+    </li>
+    <li class="nav-item mb-2">
+      <a
         routerLink="/product"
         routerLinkActive="active"
         class="nav-link text-white"
       >
-        <i class="bi bi-box-fill me-2"></i> Products
+        <i class="bi bi-book-fill me-2"></i> Books
       </a>
     </li>
     <li class="nav-item mb-2">
@@ -48,6 +56,15 @@
         class="nav-link text-white"
       >
         <i class="bi bi-tags-fill me-2"></i> Categories
+      </a>
+    </li>
+    <li class="nav-item mb-2">
+      <a
+        routerLink="/stock"
+        routerLinkActive="active"
+        class="nav-link text-white"
+      >
+        <i class="bi bi-box-seam-fill me-2"></i> Stocks
       </a>
     </li>
     <li class="nav-item mb-2">
