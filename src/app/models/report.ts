@@ -1,5 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
-
 export interface Report {
   _id?: string;
   memberID: string;

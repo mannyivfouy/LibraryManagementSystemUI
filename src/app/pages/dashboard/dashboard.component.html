@@ -1,1 +1,17 @@
-<p>dashboard works!</p>
+<div class="container-fluid" style="width: 100%; height: 100%">
+  <div class="col">
+    <div class="row">
+      <h2 class="p-0 m-0">Welcome {{ username }}</h2>
+      <span class="mt-2 p-0 text-primary fw-bold">
+        {{ currentDate | date : "dd MMM yyyy | EEEE, h:mma" | uppercase }}
+      </span>
+      <hr class="text-primary"/>
+    </div>
+    <div class="row mt-4 d-flex justify-content-between">
+      <div class="card bg-primary"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+    </div>
+  </div>
+</div>
