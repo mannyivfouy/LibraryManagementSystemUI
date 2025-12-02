@@ -7,7 +7,6 @@
       [src]="imageUrl"
       alt="User Avatar"
       class="rounded-circle"
-      
       width="50"
       height="50"
       class="rounded-circle dropdown-toggle"
@@ -28,7 +27,7 @@
             height="60"
           />
           <h6 class="fw-bold">{{ username }}</h6>
-          <small class="text-muted">User</small>
+          <small class="text-muted">{{ role }}</small>
         </div>
 
         <div class="list-group list-group-flush">
@@ -37,12 +36,6 @@
             class="list-group-item list-group-item-action"
           >
             Profile
-          </a>
-          <a
-            routerLink="/user/createUser"
-            class="list-group-item list-group-item-action"
-          >
-            Add User
           </a>
         </div>
       </div>

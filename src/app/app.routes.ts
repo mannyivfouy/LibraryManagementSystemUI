@@ -49,11 +49,14 @@ export const routes: Routes = [
           },
           {
             path: 'createUser',
-
+            canActivate: [roleGuard],
+            data: { roles: ['Administrator'] },
             component: UserFormComponent,
           },
           {
             path: 'editUser/:id',
+            canActivate: [roleGuard],
+            data: { roles: ['Administrator'] },
             component: UserFormComponent,
           },
           {

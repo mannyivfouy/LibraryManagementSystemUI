@@ -2,7 +2,9 @@
   class="d-flex flex-column bg-dark text-white p-3 vh-100"
   style="width: 300px"
 >
-  <div class="d-flex align-items-center justify-content-center mb-4 flex-column">
+  <div
+    class="d-flex align-items-center justify-content-center mb-4 flex-column"
+  >
     <img
       src="assets/images/logo.png"
       alt="Logo"
@@ -12,7 +14,7 @@
     />
   </div>
 
-  <ul class="nav nav-pills flex-column mb-auto ">
+  <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item mb-2">
       <a
         routerLink="/dashboard"
@@ -22,10 +24,19 @@
         <i class="bi bi-speedometer me-2"></i> Dashboard
       </a>
     </li>
-    <li class="nav-item mb-2">
+    <!-- <li class="nav-item mb-2" *ngIf="isAdmin(); else noHighlightUser">
       <a
         routerLink="/user"
         routerLinkActive="active"
+        class="nav-link text-white"
+      >
+        <i class="bi bi-people-fill me-2"></i> Users
+      </a>
+    </li> -->
+    <li class="nav-item mb-2">
+      <a
+        routerLink="/user"
+        [routerLinkActive]="isAdmin() ? 'active' : ''"
         class="nav-link text-white"
       >
         <i class="bi bi-people-fill me-2"></i> Users
