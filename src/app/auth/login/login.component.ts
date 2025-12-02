@@ -44,6 +44,7 @@ export class LoginComponent {
     this.authService.login(username, password).subscribe({
       next: (res) => {
         const imagePath = `http://localhost:5000${res.user.imageUrl}`;
+        localStorage.setItem('userId', res.user.id);
         localStorage.setItem('imageUrl', imagePath);
         localStorage.setItem('username', res.user.username);
         localStorage.setItem('role', res.user.role);

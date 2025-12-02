@@ -30,7 +30,7 @@ export const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
-    // canActivate: [authGuard],
+    canActivate: [authGuard],
     children: [
       {
         path: 'dashboard',
@@ -49,13 +49,17 @@ export const routes: Routes = [
           },
           {
             path: 'createUser',
-            canActivate: [roleGuard],
-            data: { roles: ['Administrator', 'Librarian', 'Stock Controller'] },
+
             component: UserFormComponent,
           },
           {
             path: 'editUser/:id',
             component: UserFormComponent,
+          },
+          {
+            path: 'profile',
+            component: UserFormComponent,
+            canActivate: [authGuard],
           },
         ],
       },

@@ -7,9 +7,45 @@
       [src]="imageUrl"
       alt="User Avatar"
       class="rounded-circle"
-      routerLink="/user/createUser"
+      
       width="50"
       height="50"
+      class="rounded-circle dropdown-toggle"
+      data-bs-toggle="dropdown"
+      style="cursor: pointer"
     />
+
+    <div
+      class="dropdown-menu dropdown-menu-end p-0 shadow"
+      style="width: 230px"
+    >
+      <div class="card border-0">
+        <div class="card-body text-center">
+          <img
+            [src]="imageUrl"
+            class="rounded-circle mb-2"
+            width="60"
+            height="60"
+          />
+          <h6 class="fw-bold">{{ username }}</h6>
+          <small class="text-muted">User</small>
+        </div>
+
+        <div class="list-group list-group-flush">
+          <a
+            routerLink="/user/profile"
+            class="list-group-item list-group-item-action"
+          >
+            Profile
+          </a>
+          <a
+            routerLink="/user/createUser"
+            class="list-group-item list-group-item-action"
+          >
+            Add User
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </nav>

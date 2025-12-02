@@ -11,7 +11,11 @@ export class SidebarComponent {
   constructor(private router: Router) {}
 
   logout() {
-    // localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('username');
+    localStorage.removeItem('role');
+    localStorage.removeItem('imageUrl');
+    
     this.router.navigate(['/login']);
   }
 }
