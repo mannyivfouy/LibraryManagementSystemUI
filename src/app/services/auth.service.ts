@@ -20,21 +20,12 @@ export class AuthService {
   private apiUrl = 'http://localhost:5000/api/auth';
 
   constructor(private http: HttpClient) {}
-
-  // login(username: string, password: string): Observable<LoginResponse> {
-  //   return this.http.post<LoginResponse>(`${this.apiUrl}/login`, {
-  //     username,
-  //     password,
-  //   });
-  // }
-
   // login and store user info in localStorage
   login(username: string, password: string): Observable<LoginResponse> {
     return this.http
       .post<LoginResponse>(`${this.apiUrl}/login`, { username, password })
       .pipe(
-        tap((res: LoginResponse) => {
-          // store login info locally
+        tap((res: LoginResponse) => {          
           localStorage.setItem('userId', res.user.id);
           localStorage.setItem('username', res.user.username);
           localStorage.setItem('role', res.user.role);
@@ -56,6 +47,6 @@ export class AuthService {
     localStorage.removeItem('imageUrl');
 
     // redirect to login
-    window.location.href = '/login'; // simple beginner-friendly redirect
+    window.location.href = '/login';
   }
 }

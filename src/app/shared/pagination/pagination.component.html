@@ -1,0 +1,24 @@
+<div class="d-flex justify-content-center align-items-center my-3">
+  <!-- Prev Button -->
+  <button
+    class="btn btn-primary me-3"
+    [disabled]="currentPage === 1"
+    (click)="goToPage(currentPage - 1)"
+  >
+    Prev
+  </button>
+
+  <!-- Page Display -->
+  <span class="mx-2">
+    {{ currentPage }} / {{ totalPages }}
+  </span>
+
+  <!-- Next Button -->
+  <button
+    class="btn btn-primary ms-3"
+    [disabled]="currentPage === totalPages"
+    (click)="goToPage(currentPage + 1)"
+  >
+    Next
+  </button>
+</div>

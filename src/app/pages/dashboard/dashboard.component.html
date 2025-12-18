@@ -5,13 +5,22 @@
       <span class="mt-2 p-0 text-primary fw-bold">
         {{ currentDate | date : "dd MMM yyyy | EEEE, h:mma" | uppercase }}
       </span>
-      <hr class="text-primary"/>
+      <hr class="text-primary" />
     </div>
     <div class="row mt-4 d-flex justify-content-between">
-      <div class="card bg-primary"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
+      <div class="card border border-primary p-3">
+        <h4>Total Users</h4>
+        <h5>{{totalUsers}}</h5>
+      </div>
+      <div class="card border border-primary p-3">
+        <h4>Total Members</h4>
+      </div>
+      <div class="card border border-primary p-3">
+        <h4>Total Books</h4>
+      </div>
+      <div class="card border border-primary p-3">
+        <h4>Total Categories</h4>
+      </div>
     </div>
   </div>
 </div>
