@@ -20,16 +20,15 @@ export class AuthService {
   private apiUrl = 'http://localhost:5000/api/auth';
 
   constructor(private http: HttpClient) {}
-  // login and store user info in localStorage
   login(username: string, password: string): Observable<LoginResponse> {
     return this.http
       .post<LoginResponse>(`${this.apiUrl}/login`, { username, password })
       .pipe(
-        tap((res: LoginResponse) => {          
+        tap((res: LoginResponse) => {
           localStorage.setItem('userId', res.user.id);
           localStorage.setItem('username', res.user.username);
           localStorage.setItem('role', res.user.role);
-          localStorage.setItem('imageUrl', res.user.imageUrl);
+          localStorage.setItem('imageUrl', res.user.imageUrl);          
         })
       );
   }

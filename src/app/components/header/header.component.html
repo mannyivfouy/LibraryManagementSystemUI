@@ -5,14 +5,16 @@
     <h3 class="fw-bold">Library Management System</h3>
     <img
       [src]="imageUrl"
-      alt="User Avatar"
-      class="rounded-circle"
+      alt="User Avatar"      
       width="50"
       height="50"
       class="rounded-circle dropdown-toggle"
       data-bs-toggle="dropdown"
       style="cursor: pointer"
+      (error)="imageUrl='http://localhost:5000/uploads/userImages/defaultUser.png'"
     />
+
+    <!-- <p>{{imageUrl}}</p> -->
 
     <div
       class="dropdown-menu dropdown-menu-end p-0 shadow"

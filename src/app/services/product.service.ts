@@ -8,7 +8,7 @@ import { map } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductService {
-  private productApiUrl = 'http://localhost:5000/api/product';
+  private productApiUrl = 'http://localhost:5000/api/products';
 
   constructor(private http: HttpClient) {}
 
