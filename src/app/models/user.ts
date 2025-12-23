@@ -1,3 +1,5 @@
+import { Role } from "./role";
+
 export interface User {
   _id?: string;
   username: string;
@@ -6,6 +8,6 @@ export interface User {
   address: string;
   gender: string;
   fullname: string;
-  roleID: string;
+  roleID: Role;
   imageUrl: string;
 }

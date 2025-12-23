@@ -2,7 +2,7 @@
   <app-sidebar></app-sidebar>
   <div class="d-flex flex-column flex-grow-1">
     <app-header></app-header>
-    <main class="flex-grow-1 p-4 overflow-auto bg-light">
+    <main class="flex-grow-1 p-3 overflow-auto bg-light">
       <router-outlet></router-outlet>
       <app-not-authorized
         *ngIf="modalService.accessDenied$ | async"

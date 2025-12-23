@@ -4,9 +4,10 @@ import { User } from '../../../models/user';
 import { CommonModule } from '@angular/common';
 import { PaginationComponent } from '../../../shared/pagination/pagination.component';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-user-list',
-  imports: [CommonModule, PaginationComponent, FormsModule],
+  imports: [CommonModule, PaginationComponent, FormsModule, RouterLink],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css',
 })
@@ -14,7 +15,7 @@ export class UserListComponent implements OnInit {
   users: User[] = [];
   paginatedUsers: User[] = [];
 
-  currentPage = 1;  
+  currentPage = 1;
   itemPerPage = 10;
   totalPages = 0;
 

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { DashboardService } from '../../services/dashboard.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,11 +17,17 @@ export class DashboardComponent implements OnInit {
   totalBooks = 0;
   totalCategories = 0;
 
-  constructor(private dashboardService: DashboardService) {}
+  constructor(private userService : UserService) {}
     
   ngOnInit() {
     const storedUsername = localStorage.getItem('username');
-
     if (storedUsername) this.username = storedUsername;
+    this.loadCount();
+  }
+
+  loadCount(){
+    this.userService.getAllUsers().subscribe({
+      next: (users) => (this.totalUsers = users.length),
+    });
   }
 }
