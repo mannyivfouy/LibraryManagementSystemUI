@@ -19,6 +19,10 @@ export class UserListComponent implements OnInit {
   itemPerPage = 10;
   totalPages = 0;
 
+  private searchTerm = '';
+  private debounceTimer: number | null = null;
+  private debounceMs = 300;
+
   constructor(private userService: UserService) {}
 
   ngOnInit() {
@@ -41,11 +45,59 @@ export class UserListComponent implements OnInit {
   //! Pagination
   updatePage(): void {
     const start = (this.currentPage - 1) * this.itemPerPage;
-    this.paginatedUsers = this.users.slice(start, start + this.itemPerPage);
+    this.paginatedUsers = this.filteredUsers.slice(
+      start,
+      start + this.itemPerPage
+    );
+    this.totalPages = Math.ceil(this.filteredUsers.length / this.itemPerPage);
   }
 
   onPageChange(page: number): void {
     this.currentPage = page;
     this.updatePage();
+  }
+
+  onSearch(event: Event) {
+    const input = event.target as HTMLInputElement | null;
+    const value = input?.value ?? '';
+
+    if (this.debounceTimer !== null) {
+      clearTimeout(this.debounceTimer);
+    }
+
+    this.debounceTimer = window.setTimeout(() => {
+      this.searchTerm = value.trim().toLocaleLowerCase();
+      this.currentPage = 1;
+      this.updatePage();
+      this.debounceTimer = null;
+    }, this.debounceMs);
+  }
+
+  get filteredUsers(): User[] {
+    if (!this.searchTerm) return this.users;
+
+    return this.users.filter(
+      (u) =>
+        (u.username || '').toLowerCase().includes(this.searchTerm) ||
+        (u.fullname || '').toLowerCase().includes(this.searchTerm)
+    );
+  }
+
+  confirmAndDelete(_id?: string): void {
+    if (!_id) {
+      console.warn('Canot Delete This User');
+      return;
+    }
+
+    if (!confirm('Delete This User? This Action Cannot Be Undone')) return;
+
+    this.userService.deleteUserByID(_id).subscribe({
+      next: () => {
+        const deleteUser = this.users.find((u) => u._id === _id);
+        this.users = this.users.filter((u) => u._id !== _id);
+        this.getAllUsers();
+      },
+      error: (err) => alert(err?.error?.message || 'Delete Field'),
+    });
   }
 }
